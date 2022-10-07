@@ -1,0 +1,14 @@
+# General
+anchor=top-right
+font=Hack Nerd Font 12
+margin=0,20,20
+padding=10
+border-size=2
+border-radius=5
+default-timeout=10000
+group-by=summary
+
+# Colors
+background-color=#1E1D2F
+text-color=#D9E0EE
+border-color=#96CDFB

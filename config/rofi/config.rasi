@@ -1,0 +1,17 @@
+configuration {
+    modi: "drun,run";
+    icon-theme: "Numix";
+    show-icons: true;
+    terminal: "foot";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    sidebar-mode: true;
+}
+
+@theme "catppuccin-mocha"
+
+/* vim:ft=css

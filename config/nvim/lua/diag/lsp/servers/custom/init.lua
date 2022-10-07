@@ -1,0 +1,1 @@
+require('zeppelin').setup({})
