@@ -40,8 +40,8 @@ map('n', '<C-J>', '<cmd>m -2<cr>')
 map('n', '<C-K>', '<cmd>m +1<cr>')
 
 -- j and k with Text Wrapping enabled
-map('n', 'j', 'gj', {silent = true})
-map('n', 'k', 'gk', {silent = true})
+map('n', 'j', 'gj', { silent = true })
+map('n', 'k', 'gk', { silent = true })
 
 -- Terminal
 map('n', '<Leader>`', '<cmd>lua require("FTerm").toggle()<cr>')

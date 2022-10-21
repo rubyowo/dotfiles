@@ -22,12 +22,12 @@ packer.startup(function(use)
   use('nvim-lua/plenary.nvim')
 
   -- Theme
-  use {
-	"catppuccin/nvim",
-	branch = "cache",
-	as = "catppuccin",
-	run = ":CatppuccinCompile"
-}
+  use({
+    'catppuccin/nvim',
+    branch = 'cache',
+    as = 'catppuccin',
+    run = ':CatppuccinCompile',
+  })
 
   -- LSP
   use('neovim/nvim-lspconfig')
@@ -52,15 +52,7 @@ packer.startup(function(use)
 
   -- Language Specific
   use('simrat39/rust-tools.nvim')
-  use({
-    'iamcco/markdown-preview.nvim',
-    run = function()
-      vim.fn['mkdp#util#install']()
-    end,
-  })
   use('~/zeppelin.nvim')
-  use('nvim-neorg/neorg')
-  use('nvim-neorg/neorg-telescope')
 
   -- Snippets
   use('L3MON4D3/LuaSnip')
@@ -70,6 +62,7 @@ packer.startup(function(use)
 
   -- UI Stuff
   use('nvim-telescope/telescope.nvim')
+  use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
   use('stevearc/dressing.nvim')
   use('nvim-neo-tree/neo-tree.nvim')
   use('noib3/nvim-cokeline')

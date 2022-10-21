@@ -30,10 +30,8 @@ load('treesitter')
 
 -- Plugin Confs
 load('stuff/filetype')
-load('stuff/gittree')
 load('stuff/presence')
 load('stuff/autosave')
--- load('stuff/neorg')
 
 -- Vim Navigation
 load('stuff/nav/leap')
@@ -45,6 +43,7 @@ load('stuff/ui/pqf')
 load('stuff/ui/dressing')
 load('stuff/ui/telescope')
 load('stuff/ui/terminal')
+load('stuff/ui/lazygit')
 load('stuff/ui/notify')
 load('stuff/ui/tree')
 load('stuff/ui/statusline')

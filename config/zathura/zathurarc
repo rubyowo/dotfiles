@@ -1,0 +1,4 @@
+include catppuccin-mocha
+set recolor true
+set recolor-reverse-video true
+set guioptions none

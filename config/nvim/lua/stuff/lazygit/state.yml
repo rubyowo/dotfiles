@@ -1,8 +1,9 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/kate/hackathon-project
+- /home/kate/catppuccin/catppuccin-waybar
 - /home/kate/Bento
-- /home/kate/catppuccin-hyprland
-- /home/kate/catppuccin-waybar
+- /home/kate/catppuccin/catppuccin-hyprland
 - /home/kate/zeppelin-language-server
 - /home/kate/lspdiags.nvim
 - /home/kate/zeppelin.nvim

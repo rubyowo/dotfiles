@@ -19,6 +19,7 @@ compinit
 export BAT_THEME="Catppuccin-mocha"
 alias dicker=docker
 export NVM_DIR="$HOME/.nvm"
+export PATH="$PATH:/home/kate/.local/bin"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 function md () {
@@ -33,6 +34,7 @@ if [[ ! -d $ZPLUGINDIR/zsh_unplugged ]]; then
 fi
 source $ZPLUGINDIR/zsh_unplugged/zsh_unplugged.plugin.zsh
 source $ZPLUGINDIR/catppuccin-zsh-syntax-highlighting.zsh
+# source ~/catppuccin/zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 
 repos=(
     romkatv/zsh-defer
