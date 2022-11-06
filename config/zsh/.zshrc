@@ -62,4 +62,4 @@ function plugin-compile {
 }
 
 eval $(starship init zsh)
-rxfetch
+neofetch --sixel ~/Pictures/Cat_no_bg.png

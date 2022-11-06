@@ -9,7 +9,7 @@ disabled = true
 
 [character]
 success_symbol = " [ﬦ](#cba6f7 bold)"
-error_symbol = " [](#f38ba8)"
+error_symbol = " [ﬦ](#f38ba8)"
 
 [hostname]
 ssh_only = true
@@ -26,7 +26,7 @@ style = "fg:#89b4fa bg:#1e1e2e"
 format = "(fg:#1e1e2e bg:#1e1e2e)[](fg:#cba6f7 bg:#1e1e2e)[ $path](fg:#1e1e2e bg:#cba6f7)[](fg:#cba6f7 bg:none) "
 style = "fg:#d9d7d6 bg:#1e1e2e"
 truncation_length = 3
-truncate_to_repo=false
+truncate_to_repo=true
 
 [git_branch]
 format = "(fg:#1e1e2e bg:#1e1e2e)[](fg:#74c7ec bg:#1e1e2e)[ $branch](fg:#282c34 bg:#74c7ec)[](fg:#74c7ec bg:none) "
