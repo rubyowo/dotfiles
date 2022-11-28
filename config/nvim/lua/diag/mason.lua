@@ -21,6 +21,7 @@ require('mason-tool-installer').setup({
     'dockerfile-language-server',
     'pyright',
     'rust-analyzer',
+    'deno'
   },
   run_on_start = true,
 })

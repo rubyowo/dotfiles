@@ -9,7 +9,7 @@
 #waybar {
   background: transparent;
   color: @text;
-  margin: 5px 0;
+  margin: 5px 5px;
 }
 
 #workspaces {
@@ -68,6 +68,10 @@
 
 #backlight {
   color: @yellow;
+}
+
+#backlight, #battery {
+    border-radius: 0;
 }
 
 #pulseaudio {

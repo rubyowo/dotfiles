@@ -1,0 +1,46 @@
+MUSIC_DIRECTORY: "~/Music"
+
+ADDITIONAL_PADDING_X : 9
+ADDITIONAL_PADDING_Y : 17
+IMAGE_WIDTH_EXTRA_X  : -1.1
+IMAGE_WIDTH_EXTRA_Y  : -3.75
+MPD_PORT : "6600"
+NETWORK_TYPE : "tcp" # Defaults to tcp if not provided, use "unix"
+
+NETWORK_ADDRESS : "localhost" # Defaults to localhost if not provided,
+
+DEFAULT_IMAGE_PATH: "~/default.jpg"
+
+SEEK_OFFSET : 1
+
+GET_COVER_ART_FROM_LAST_FM : "TRUE" # Turn On Getting Album art from lastfm api
+LASTFM_API_KEY: "ee98b181c8c57af1fb33da16b0f06cd9"
+LASTFM_API_SECRET: "b810a2cfb4fbafd2dde8401b122e793c"
+LASTFM_AUTO_CORRECT: 1  # 0 means it is turned off
+  # according to lastfm documentation
+  # autocorrect[0|1] (Optional) : Transform misspelled artist names into
+  # correct artist names, returning the correct version instead.
+
+# Mappings
+#
+# Mapping works in the following way:
+# Function: [ firstMapping, secondMapping, thirdMapping, ...... ]
+# for e.g
+togglePlayBack : [ "p", "SPACE", "]" ] # using the quotes is neccessary.
+  # all the three keys now have the same function.
+  # To see Availabe Keys and Functions :
+  # https://github.com/aditya-K2/gomp#key-mappings
+
+# Caching
+#
+# The Covert arts that are extracted from the file or downloaded from lastfm
+# are cached. It Is neccessary to define a cache directory to store all
+# the cover arts. The Caching works as follows
+# 1. Check if there is an embedded cover art if not then 2
+# 2. Check if lastfm has album art if not then 3
+# 3. Fallback to the default image.
+#
+#
+CACHE_DIR : "~/.config/gomp/cache/"
+  # for e.g "~/.config/gomp/cache/"
+  # You will have to manually create this directory.

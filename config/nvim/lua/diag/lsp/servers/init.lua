@@ -1,5 +1,6 @@
 local servers = {
   tsserver = {},
+  denols = {},
   bashls = {},
   dockerls = {},
   rust_analyzer = require('diag.lsp.servers.rust_analyzer'),
