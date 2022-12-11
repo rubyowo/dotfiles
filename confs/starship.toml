@@ -1,0 +1,55 @@
+format = "$directory$character"
+right_format = """$nix_shell$git_status$git_branch$cmd_duration"""
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+[line_break]
+disabled = true
+
+[character]
+success_symbol = " [](#99d1db bold)"
+error_symbol = " [ﬦ](#e78284)"
+
+[hostname]
+ssh_only = true
+format = "[$hostname](bold blue) "
+disabled = false
+
+[cmd_duration]
+min_time = 1
+format = "(fg:#303446 bg:#303446)[](fg:#8caaee bg:#303446)[ $duration](fg:#303446 bg:#8caaee)[](fg:#8caaee bg:none) "
+disabled = false
+style = "fg:#8caaee bg:#303446"
+
+[directory]
+format = "(fg:#303446 bg:#303446)[](fg:#99d1db bg:#303446)[ $path](fg:#303446 bg:#99d1db)[](fg:#99d1db bg:none) "
+style = "fg:#d9d7d6 bg:#303446"
+truncation_length = 3
+truncate_to_repo=true
+
+[nix_shell]
+format = "(fg:#303446 bg:#303446)[](fg:#81c8be bg:#303446)[](fg:#303446 bg:#81c8be)[](fg:#81c8be bg:none) "
+style = "fg:#81c8be bg:#303446"
+
+[git_branch]
+format = "(fg:#303446 bg:#303446)[](fg:#85c1dc bg:#303446)[ $branch](fg:#282c34 bg:#85c1dc)[](fg:#85c1dc bg:none) "
+style = "fg:#d9d7d6 bg:#303446"
+
+[git_status]
+format="(fg:#303446 bg:#303446)[](fg:#99d1db bg:#303446)[ $all_status](fg:#303446 bg:#99d1db)[](fg:#99d1db bg:none) "
+style = "fg:#d9d7d6 bg:#303446"
+conflicted = "="
+ahead ="${count}"
+behind = "${count}"
+diverged = "${ahead_count}${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = ""
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "${count}"
+
+[package]
+disabled=true

@@ -1,0 +1,5 @@
+@import url("https://catppuccin.github.io/youtubemusic/src/frappe.css");
+
+html:not(.style-scope) {
+    --accentColor: #99d1db !important;
+}
