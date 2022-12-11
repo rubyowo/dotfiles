@@ -7,4 +7,4 @@ In here, you'll find an absolutely unnecessarily complex NixOS setup, and a bunc
 If you're still reading this, then you are either very stubborn, or very interested in looking at a piece of my shit setup. In that case... good luck.
 
 ## Preview
-!(image)[./assets/rice.png]
+![image](./assets/rice.png)
