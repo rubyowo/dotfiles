@@ -29,6 +29,7 @@
     envExtra = ''
       export MCFLY_KEY_SCHEME=vim
       export MCFLY_DISABLE_MENU=TRUE
+      export BAT_THEME="frappe"
     '';
 
     initExtra = ''

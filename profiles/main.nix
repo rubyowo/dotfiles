@@ -19,6 +19,7 @@
     ../apps/nvim.nix
     ../apps/cargo.nix
     ../apps/cava.nix
+    ../apps/bat.nix
 
     ../packages/cargo.nix
   ];
