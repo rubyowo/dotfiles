@@ -1,8 +1,10 @@
 # XDG settings
-
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   xdg = {
     userDirs = {
       enable = true;
@@ -22,7 +24,7 @@
 
     mimeApps = {
       enable = true;
-      defaultApplications = { "text/html" = [ "firefox.desktop" ]; };
+      defaultApplications = {"text/html" = ["firefox.desktop"];};
     };
   };
 }
