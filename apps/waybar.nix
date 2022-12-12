@@ -24,7 +24,7 @@
           disable-scroll = true;
           sort-by-name = true;
           format = "{icon}";
-          format-icons = {default = " ";};
+          format-icons = {default = "";};
         };
 
         tray = {

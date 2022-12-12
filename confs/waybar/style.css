@@ -14,7 +14,7 @@
 
 #workspaces {
   border-radius: 1rem;
-  margin: 5px;
+  margin: 5px 0px;
   background-color: @surface0;
   margin-left: 1rem;
 }
@@ -22,7 +22,7 @@
 #workspaces button {
   color: @lavender;
   border-radius: 1rem;
-  padding: 0.4rem;
+  padding: 0.5rem;
 }
 
 #workspaces button.active {
