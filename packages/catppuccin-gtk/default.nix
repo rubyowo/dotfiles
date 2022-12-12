@@ -4,7 +4,7 @@ stdenv.mkDerivation rec {
   name = "catppuccin-gtk";
 
   src = fetchzip {
-    url = "https://github.com/catppuccin/gtk/releases/download/v0.3.1/Catppuccin-Frappe-Standard-Sky.zip";
+    url = "https://github.com/catppuccin/gtk/releases/download/v0.4.0/Catppuccin-Frappe-Standard-Sky.zip";
     sha256 = "tzJnBH90slFN6cUtNmH1KXYh8uDeVJumW1JkwREU6RE=";
     stripRoot = false;
   };
