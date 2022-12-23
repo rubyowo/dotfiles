@@ -1,5 +1,4 @@
 {
-  self,
   config,
   pkgs,
   lib,
@@ -16,7 +15,6 @@
       ./apps
       ./packages
       ./env.nix
-      self.inputs.hyprland.homeManagerModules.default
     ];
   };
 }

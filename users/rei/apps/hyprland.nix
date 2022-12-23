@@ -2,9 +2,9 @@
   config,
   pkgs,
   lib,
-  inputs,
   ...
-}:  let
+}:  
+/* let
   flake-compat = builtins.fetchTarball {
     url = "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
     sha256 = "sha256-Ht91NGdewz8IQLtWZ9LCeNXMSXHUss+9COoqu6JLmXU=";
@@ -16,10 +16,9 @@
         sha256 = "sha256-3LmSPx6/8xp06L/QaCwkxn804gJ3QaSsZKY3kiCIHNE=";
     };
   }).defaultNix;
-in {
-  imports = [hyprland.homeManagerModules.default];
-
-  wayland.windowManagers.hyprland = {
+in */
+{
+  wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = builtins.readFile ../confs/hypr/hyprland.conf;
   };

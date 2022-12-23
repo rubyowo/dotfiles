@@ -69,6 +69,12 @@
         overlays
       ];
     };
+    homeManagerConfigurations."rei@selene" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [
+            hyprland.homeManagerModules.default
+        ];
+    };
   };
 
   nixConfig = {
