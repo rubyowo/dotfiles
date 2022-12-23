@@ -67,18 +67,8 @@
           home-manager.extraSpecialArgs = {inherit system inputs;};
         }
         overlays
-      ];
-    };
-    homeManagerConfigurations."rei@selene" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [
-        hyprland.homeManagerModules.default
-        {
-          wayland.windowManager.hyprland = {
-            enable = true;
-            extraConfig = builtins.readFile ./confs/hypr/hyprland.conf;
-          };
-        }
+        hyprland.nixosModules.default
+        {programs.hyprland.enable = true;}
       ];
     };
   };
