@@ -64,26 +64,22 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit system inputs; };
+          home-manager.extraSpecialArgs = {inherit system inputs;};
         }
         overlays
       ];
     };
     homeManagerConfigurations."rei@selene" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-            hyprland.homeManagerModules.default
-        ];
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [
+        hyprland.homeManagerModules.default
+        {
+          wayland.windowManager.hyprland = {
+            enable = true;
+            extraConfig = builtins.readFile ./confs/hypr/hyprland.conf;
+          };
+        }
+      ];
     };
-  };
-
-  nixConfig = {
-    commit-lockfile-summary = "flake: bump inputs";
-
-    substituters = [
-      "https://cache.nixos.org"
-      "https://nix-community.cachix.org"
-      "https://hyprland.cachix.org"
-    ];
   };
 }

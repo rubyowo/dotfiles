@@ -18,11 +18,6 @@
   }).defaultNix;
 in */
 {
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = builtins.readFile ../confs/hypr/hyprland.conf;
-  };
-
   home.packages = with pkgs; [
     hyprpaper
     grim
