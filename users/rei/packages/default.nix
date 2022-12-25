@@ -42,7 +42,6 @@
 
     (callPackage ./catppuccin-gtk {})
     (callPackage ./catppuccin-cursors {}).frappeSky
-    (callPackage ./catppuccin-qt5ct {})
     (callPackage ./grimblast {})
     (callPackage ./hyprpicker {})
   ];
