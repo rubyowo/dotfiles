@@ -5,10 +5,12 @@ logout="  Log Out"
 shutdown="  Shut Down"
 reboot="  Reboot"
 sleep="  Sleep"
+hibernate="  Hibernate"
 # Get answer from user via rofi
 selected_option=$(echo "$lock
 $logout
 $sleep
+$hibernate
 $reboot
 $shutdown" | rofi -dmenu\
                   -i\
@@ -29,6 +31,9 @@ then
 elif [ "$selected_option" == "$sleep" ]
 then
     systemctl suspend
+elif [ "$selected_option" == "$hibernate" ]
+then
+    systemctl hibernate
 else
     echo "No match"
 fi
