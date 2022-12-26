@@ -11,9 +11,9 @@
     defaultTimeout = 10000;
     groupBy = "summary";
 
-    backgroundColor = "#303446";
-    textColor = "#c6d0f5";
-    borderColor = "#99d1db";
-    progressColor = "#414559";
+    backgroundColor = "#24273a";
+    textColor = "#cad3f5";
+    borderColor = "#f5bde6";
+    progressColor = "#363a4f";
   };
 }

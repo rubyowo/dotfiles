@@ -4,8 +4,8 @@ stdenv.mkDerivation rec {
   name = "catppuccin-gtk";
 
   src = fetchzip {
-    url = "https://github.com/catppuccin/gtk/releases/download/v0.4.0/Catppuccin-Frappe-Standard-Sky-Dark.zip";
-    sha256 = "sha256-4UTG7PdKiRPlNCXkBCzDr4RbyH+8M1UTSwOyk/kF3Y4=";
+    url = "https://github.com/catppuccin/gtk/releases/download/v0.4.0/Catppuccin-Macchiato-Standard-Pink-Dark.zip";
+    sha256 = "sha256-qDXlGpFQNYiBrCHMmb5cp9t22pAacVJoaqcC96CSGbI=";
     stripRoot = false;
   };
 
@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/share/themes
-    cp -r Catppuccin-Frappe-Standard-Sky-Dark $out/share/themes
+    cp -r Catppuccin-Macchiato-Standard-Pink-Dark $out/share/themes
   '';
 
   meta = with lib; {

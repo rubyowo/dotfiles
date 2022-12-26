@@ -24,7 +24,7 @@
           disable-scroll = true;
           sort-by-name = true;
           format = "{icon}";
-          format-icons = {default = "";};
+          format-icons = {default = "";};
         };
 
         pulseaudio = {
@@ -93,6 +93,6 @@
 
   xdg.configFile."waybar/style.css".text =
     builtins.readFile ../confs/waybar/style.css;
-  xdg.configFile."waybar/frappe.css".text =
-    builtins.readFile ../confs/waybar/frappe.css;
+  xdg.configFile."waybar/macchiato.css".text =
+    builtins.readFile ../confs/waybar/macchiato.css;
 }

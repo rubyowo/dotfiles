@@ -6,11 +6,11 @@
   config.gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Frappe-Standard-Sky-Dark";
+      name = "Catppuccin-Macchiato-Standard-Pink-Dark";
       package = pkgs.callPackage ../packages/catppuccin-gtk {};
     };
     iconTheme = {
-      package = pkgs.rubyowo.catppuccin-papirus-folders.override {flavor = "frappe"; accent = "sky";};
+      package = pkgs.rubyowo.catppuccin-papirus-folders.override {flavor = "macchiato"; accent = "pink";};
       name = "Papirus";
     };
     font = {
@@ -32,5 +32,5 @@
   };
 
   # cursor theme
-  config.home.file.".icons/default".source = "${(pkgs.callPackage ../packages/catppuccin-cursors {}).frappeSky}/share/icons/Catppuccin-Frappe-Sky-Cursors";
+  config.home.file.".icons/default".source = "${(pkgs.callPackage ../packages/catppuccin-cursors {}).macchiatoPink}/share/icons/Catppuccin-Macchiato-Pink-Cursors";
 }

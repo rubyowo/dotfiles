@@ -22,8 +22,8 @@
 
   xdg.configFile."hypr/hyprpaper.conf".text =
     builtins.readFile ../confs/hypr/hyprpaper.conf;
-  xdg.configFile."hypr/frappe.conf".text =
-    builtins.readFile ../confs/hypr/frappe.conf;
+  xdg.configFile."hypr/macchiato.conf".text =
+    builtins.readFile ../confs/hypr/macchiato.conf;
 
   systemd.user.targets.hyprland-session = {
     Unit = {

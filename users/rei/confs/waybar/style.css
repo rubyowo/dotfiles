@@ -1,4 +1,4 @@
-@import "frappe.css";
+@import "macchiato.css";
 
 * {
   font-family: FantasqueSansMono Nerd Font;
@@ -12,27 +12,28 @@ window#waybar {
 
 #workspaces {
   border-radius: 1rem;
-  background-color: @surface0;
+  background-color: @base;
   margin-top: 1rem;
-  margin-left: 7px;
+  margin: 7px 3px 0px 7px;
 }
 
 #workspaces button {
-  color: @lavender;
+  color: @mauve;
   border-radius: 1rem;
   padding-left: 6px;
+  margin: 5px 0;
   box-shadow: inset 0 -3px transparent;
   transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
   background-color: transparent;
 }
 
 #workspaces button.active {
-  color: @sky;
+  color: @pink;
   border-radius: 1rem;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
+  color: @flamingo;
   border-radius: 1rem;
 }
 
@@ -44,7 +45,7 @@ window#waybar {
 #pulseaudio,
 #custom-lock,
 #custom-power {
-  background-color: @surface0;
+  background-color: @base;
   margin: 7px 3px 0px 7px;
   padding: 10px 5px 10px 5px;
   border-radius: 1rem;
@@ -93,8 +94,8 @@ window#waybar {
 }
 
 tooltip {
-    background: @surface0;
-    border: 1px solid @sky;
+    background: @base;
+    border: 1px solid @pink;
 }
 
 tooltip label {

@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  home.sessionVariables = {
+  home.sessionVariables = rec {
     EDITOR = "nvim";
     GIT_EDITOR = "nvim";
     TERMINAL = "foot";

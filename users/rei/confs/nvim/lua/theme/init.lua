@@ -1,4 +1,4 @@
-vim.g.catppuccin_flavour = 'frappe'
+vim.g.catppuccin_flavour = 'macchiato'
 local colors = require('catppuccin.palettes').get_palette()
 
 require('catppuccin').setup({
@@ -23,7 +23,7 @@ require('catppuccin').setup({
     path = vim.fn.stdpath('cache') .. '/catppuccin',
   },
   custom_highlights = {
-    FloatBorder = { fg = colors.sky },
+    FloatBorder = { fg = colors.pink },
   },
 })
 

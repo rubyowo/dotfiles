@@ -1,4 +1,4 @@
 { config, pkgs, lib, ... }:
 {
-    xdg.configFile."bat/themes/frappe.tmTheme".text = builtins.readFile ../confs/bat/frappe.tmTheme;
+    xdg.configFile."bat/themes/macchiato.tmTheme".text = builtins.readFile ../confs/bat/macchiato.tmTheme;
 }

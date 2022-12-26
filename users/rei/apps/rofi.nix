@@ -23,20 +23,20 @@ in
       hide-scrollbar = true;
       sidebar-mode = true;
       font = "FantasqueSansMono Nerd Font 14";
-      display-drun = " Apps";
+      display-drun = "Apps";
       drun-display-format = "{name}";
     };
     theme = let inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = {
-        bg-col = mkLiteral "#303446";
-        bg-col-light = mkLiteral "#303446";
-        border-col = mkLiteral "#414559";
-        selected-col = mkLiteral "#303446";
-        sky = mkLiteral "#99d1db";
-        fg-col = mkLiteral "#c6d0f5";
-        fg-col2 = mkLiteral "@sky";
-        grey = mkLiteral "#737994";
+        bg-col = mkLiteral "#24273a";
+        bg-col-light = mkLiteral "#24273a";
+        border-col = mkLiteral "#363a4f";
+        selected-col = mkLiteral "#24273a";
+        pink = mkLiteral "#f5bde6";
+        fg-col = mkLiteral "#cad3f5";
+        fg-col2 = mkLiteral "@pink";
+        grey = mkLiteral "#6e738d";
 
         width = mkLiteral "450px";
       };
@@ -64,7 +64,7 @@ in
       };
 
       prompt = {
-        background-color = mkLiteral "@sky";
+        background-color = mkLiteral "@pink";
         padding = mkLiteral "6px";
         text-color = mkLiteral "@bg-col";
         border-radius = mkLiteral "15px";
@@ -117,7 +117,7 @@ in
 
       "button selected" = {
         background-color = mkLiteral "@bg-col";
-        text-color = mkLiteral "@sky";
+        text-color = mkLiteral "@pink";
       };
     };
   };

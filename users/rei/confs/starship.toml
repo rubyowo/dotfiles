@@ -8,37 +8,35 @@ add_newline = false
 disabled = true
 
 [character]
-success_symbol = " [](#99d1db bold)"
-error_symbol = " [ﬦ](#e78284)"
+success_symbol = " [ﬦ](#f5bde6 bold)"
+error_symbol = " [ﬦ](#ed8796)"
 
 [hostname]
-ssh_only = true
-format = "[$hostname](bold blue) "
-disabled = false
+disabled = true
 
 [cmd_duration]
 min_time = 1
-format = "(fg:#303446 bg:#303446)[](fg:#8caaee bg:#303446)[ $duration](fg:#303446 bg:#8caaee)[](fg:#8caaee bg:none) "
+format = "(fg:#24273a bg:#24273a)[](fg:#c6a0f6 bg:#24273a)[ $duration](fg:#24273a bg:#c6a0f6)[](fg:#c6a0f6 bg:none) "
 disabled = false
-style = "fg:#8caaee bg:#303446"
+style = "fg:#c6a0f6 bg:#24273a"
 
 [directory]
-format = "(fg:#303446 bg:#303446)[](fg:#99d1db bg:#303446)[ $path](fg:#303446 bg:#99d1db)[](fg:#99d1db bg:none) "
-style = "fg:#d9d7d6 bg:#303446"
+format = "(fg:#24273a bg:#24273a)[](fg:#f5bde6 bg:#24273a)[ $path](fg:#24273a bg:#f5bde6)[](fg:#f5bde6 bg:none) "
+style = "fg:#d9d7d6 bg:#24273a"
 truncation_length = 3
 truncate_to_repo=true
 
 [nix_shell]
-format = "(fg:#303446 bg:#303446)[](fg:#81c8be bg:#303446)[](fg:#303446 bg:#81c8be)[](fg:#81c8be bg:none) "
-style = "fg:#81c8be bg:#303446"
+format = "(fg:#24273a bg:#24273a)[](fg:#8bd5ca bg:#24273a)[](fg:#24273a bg:#8bd5ca)[](fg:#8bd5ca bg:none) "
+style = "fg:#8bd5ca bg:#24273a"
 
 [git_branch]
-format = "(fg:#303446 bg:#303446)[](fg:#85c1dc bg:#303446)[ $branch](fg:#282c34 bg:#85c1dc)[](fg:#85c1dc bg:none) "
-style = "fg:#d9d7d6 bg:#303446"
+format = "(fg:#24273a bg:#24273a)[](fg:#f4dbd6 bg:#24273a)[ $branch](fg:#282c34 bg:#f4dbd6)[](fg:#f4dbd6 bg:none) "
+style = "fg:#f4dbd6 bg:#24273a"
 
 [git_status]
-format="(fg:#303446 bg:#303446)[](fg:#99d1db bg:#303446)[ $all_status](fg:#303446 bg:#99d1db)[](fg:#99d1db bg:none) "
-style = "fg:#d9d7d6 bg:#303446"
+format="(fg:#24273a bg:#24273a)[](fg:#f0c6c6 bg:#24273a)[ $all_status](fg:#24273a bg:#f0c6c6)[](fg:#f0c6c6 bg:none) "
+style = "fg:#f0c6c6 bg:#24273a"
 conflicted = "="
 ahead ="${count}"
 behind = "${count}"

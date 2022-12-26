@@ -12,7 +12,7 @@ $sleep
 $reboot
 $shutdown" | rofi -dmenu\
                   -i\
-                  -p " Power")
+                  -p "Power")
 # Do something based on selected option
 if [ "$selected_option" == "$lock" ]
 then

@@ -41,7 +41,7 @@
     httpie
 
     (callPackage ./catppuccin-gtk {})
-    (callPackage ./catppuccin-cursors {}).frappeSky
+    (callPackage ./catppuccin-cursors {}).macchiatoPink
     (callPackage ./grimblast {})
     (callPackage ./hyprpicker {})
   ];
