@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   home.packages = with pkgs; [
@@ -27,6 +28,11 @@
     cava
     swaylock-effects
     youtube-music
+    inputs.nix-gaming.packages.${pkgs.system}.wine-ge
+    winetricks
+    lutris
+    zathura
+    keepassxc
 
     # Modern unix
     ripgrep

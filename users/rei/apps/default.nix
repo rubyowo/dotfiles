@@ -20,5 +20,6 @@
     ./rust.nix
     ./cava.nix
     ./bat.nix
+    ./zathura.nix
   ];
 }

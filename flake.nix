@@ -11,11 +11,23 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+/*    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    }; */
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -24,6 +36,7 @@
     home-manager,
     fenix,
     hyprland,
+#    nixpkgs-wayland,
     ...
   } @ inputs: let
     filterNixFiles = k: v: v == "regular" && nixpkgs.lib.hasSuffix ".nix" k;
@@ -44,6 +57,7 @@
           })
 
           fenix.overlays.default
+#          nixpkgs-wayland.overlay
         ]
         ++ (importNixFiles ./overlays);
     };
@@ -63,12 +77,12 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {inherit system inputs;};
         }
         overlays
         hyprland.nixosModules.default
         {programs.hyprland.enable = true;}
       ];
+      specialArgs = {inherit system inputs;};
     };
   };
 }

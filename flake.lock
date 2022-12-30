@@ -45,7 +45,9 @@
     "hyprland": {
       "inputs": {
         "hyprland-protocols": "hyprland-protocols",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "wlroots": "wlroots",
         "xdph": "xdph"
       },
@@ -95,19 +97,23 @@
         "type": "github"
       }
     },
-    "nixpkgs": {
+    "nix-gaming": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1671359686,
-        "narHash": "sha256-3MpC6yZo+Xn9cPordGz2/ii6IJpP2n8LE8e/ebUXLrs=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "04f574a1c0fde90b51bf68198e2297ca4e7cccf4",
+        "lastModified": 1671809368,
+        "narHash": "sha256-K9shKJpsfH7wuM15mj4+UBT13vUDv0l5porLgfpU40E=",
+        "owner": "fufexan",
+        "repo": "nix-gaming",
+        "rev": "7c272d85557b9e4f0a210025ebf3800ecaa22e00",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
+        "owner": "fufexan",
+        "repo": "nix-gaming",
         "type": "github"
       }
     },
@@ -147,6 +153,7 @@
         "fenix": "fenix",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "nix-gaming": "nix-gaming",
         "nixpkgs": [
           "nixpkgs-rubyowo"
         ],
