@@ -66,6 +66,9 @@
   # Polkit
   security.polkit.enable = true;
 
+  # Add swaylock to pam.d
+  security.pam.services.swaylock = {};
+
   # OpenGL
   hardware.opengl.enable = true;
 

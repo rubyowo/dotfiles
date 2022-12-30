@@ -1,6 +1,6 @@
 ignore-empty-password
 disable-caps-lock-text
-image=~/media/pictures/winter-wall2.png
+image=~/media/pictures/wallpaper.jpg
 
 text-ver-color=00000000
 text-wrong-color=00000000
@@ -28,8 +28,10 @@ indicator
 clock
 timestr=%I:%M %p
 datestr=%A, %d %B
-indicator-x-position=180
-indicator-y-position=1050
-indicator-radius=180
+indicator-x-position=200
+indicator-y-position=1020
+indicator-radius=200
 
-text-color=99d1db
+fade-in=0.5
+
+text-color=f5bde6

@@ -27,4 +27,6 @@
     builtins.readFile ../confs/hypr/hyprpaper.conf;
   xdg.configFile."hypr/macchiato.conf".text =
     builtins.readFile ../confs/hypr/macchiato.conf;
+  xdg.configFile."swaylock/config".text =
+    builtins.readFile ../confs/swaylock/config;
 }
