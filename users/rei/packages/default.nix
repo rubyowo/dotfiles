@@ -10,7 +10,6 @@
     neofetch
     lazygit
     lazydocker
-    discord
     gparted
     gimp
     pavucontrol
@@ -48,7 +47,5 @@
 
     (callPackage ./catppuccin-gtk {})
     (callPackage ./catppuccin-cursors {}).macchiatoPink
-    (callPackage ./grimblast {})
-    (callPackage ./hyprpicker {})
   ];
 }

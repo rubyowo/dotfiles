@@ -11,10 +11,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-/*    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    }; */
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,10 +20,14 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland-contrib.url = "github:hyprwm/contrib";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
+
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    webcord.url = "github:fufexan/webcord-flake";
   };
 
   outputs = {
@@ -36,17 +36,9 @@
     home-manager,
     fenix,
     hyprland,
-#    nixpkgs-wayland,
+    webcord,
     ...
   } @ inputs: let
-    filterNixFiles = k: v: v == "regular" && nixpkgs.lib.hasSuffix ".nix" k;
-
-    importNixFiles = path:
-      with nixpkgs.lib;
-        (lists.forEach (mapAttrsToList (name: _: path + ("/" + name))
-            (filterAttrs filterNixFiles (builtins.readDir path))))
-        import;
-
     overlays = {pkgs, ...}: {
       nixpkgs.overlays = with inputs;
         [
@@ -55,11 +47,9 @@
           in {
             rubyowo = import nixpkgs-rubyowo {inherit config system;};
           })
-
           fenix.overlays.default
-#          nixpkgs-wayland.overlay
-        ]
-        ++ (importNixFiles ./overlays);
+          webcord.overlays.default
+        ];
     };
 
     config = {

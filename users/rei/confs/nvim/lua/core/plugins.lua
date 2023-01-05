@@ -67,7 +67,7 @@ plugins = {
     },
   },
   -- Language Specific
-  'simrat39/rust-tools.nvim',
+  {'simrat39/rust-tools.nvim', ft = 'rust'},
   -- Snippets
   'L3MON4D3/LuaSnip',
   -- Formatting

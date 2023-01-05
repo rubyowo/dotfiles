@@ -16,6 +16,8 @@
 
     imports = [
       inputs.hyprland.homeManagerModules.default
+      inputs.webcord.homeManagerModules.default
+
       ./env.nix
       ./apps
       ./packages
