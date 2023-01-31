@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
-opts = {
+local opts = {
   ui = {
     border = 'rounded',
   },
@@ -24,11 +24,15 @@ opts = {
   defaults = {
     lazy = true,
   },
+  install = {
+    colorscheme = { 'catppuccin' },
+    missing = true,
+  },
   -- Nix Moment
   lockfile = '~/nixos/users/rei/confs/nvim/lazy-lock.json',
 }
 
-plugins = {
+local plugins = {
   -- Stuff other plugins depend on
   'MunifTanjim/nui.nvim',
   'nvim-lua/plenary.nvim',
@@ -38,6 +42,8 @@ plugins = {
     'catppuccin/nvim',
     name = 'catppuccin',
     build = ':CatppuccinCompile',
+    lazy = false,
+    priority = 1000,
   },
 
   -- LSP
@@ -67,7 +73,8 @@ plugins = {
     },
   },
   -- Language Specific
-  {'simrat39/rust-tools.nvim', ft = 'rust'},
+  { 'simrat39/rust-tools.nvim', ft = 'rust' },
+  { 'saecki/crates.nvim', event = 'BufRead Cargo.toml' },
   -- Snippets
   'L3MON4D3/LuaSnip',
   -- Formatting

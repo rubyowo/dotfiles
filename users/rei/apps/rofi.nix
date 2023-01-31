@@ -33,7 +33,7 @@ in
         bg-col-light = mkLiteral "#24273a";
         border-col = mkLiteral "#363a4f";
         selected-col = mkLiteral "#24273a";
-        pink = mkLiteral "#f5bde6";
+        pink = mkLiteral "#f5c2e7";
         fg-col = mkLiteral "#cad3f5";
         fg-col2 = mkLiteral "@pink";
         grey = mkLiteral "#6e738d";

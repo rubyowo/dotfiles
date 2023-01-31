@@ -5,51 +5,34 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs-rubyowo.url = "github:rubyowo/nixpkgs/catppuccin-papirus-folders";
 
-    nixpkgs.follows = "nixpkgs-rubyowo";
+    nixpkgs.follows = "nixpkgs-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprland-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
 
-    nix-gaming = {
-      url = "github:fufexan/nix-gaming";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    webcord.url = "github:fufexan/webcord-flake";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+
+    catppuccin-toolbox.url = "github:catppuccin/toolbox";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    fenix,
+    rust-overlay,
     hyprland,
-    webcord,
     ...
   } @ inputs: let
     overlays = {pkgs, ...}: {
-      nixpkgs.overlays = with inputs;
-        [
-          (final: _: let
-            inherit (final) system;
-          in {
-            rubyowo = import nixpkgs-rubyowo {inherit config system;};
-          })
-          fenix.overlays.default
-          webcord.overlays.default
-        ];
+      nixpkgs.overlays = with inputs; [
+        rust-overlay.overlays.default
+      ];
     };
 
     config = {
@@ -62,6 +45,11 @@
     nixosConfigurations.selene = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
+        {
+          environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
+          nix.nixPath = ["nixpkgs=/etc/nix/inputs/nixpkgs"];
+          nix.registry.nixpkgs.flake = nixpkgs;
+        }
         ./hosts/selene
         home-manager.nixosModules.home-manager
         {

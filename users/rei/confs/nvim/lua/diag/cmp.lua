@@ -91,3 +91,21 @@ vim.diagnostic.config({
   update_in_insert = true,
   severity_sort = true,
 })
+
+vim.api.nvim_create_autocmd('BufRead', {
+  group = vim.api.nvim_create_augroup('CmpSourceCargo', { clear = true }),
+  pattern = 'Cargo.toml',
+  callback = function()
+    cmp.setup.buffer({ sources = { { name = 'crates' } } })
+
+    local opts = { silent = true }
+    local crates = require('crates')
+    local map = require('utils').map
+    map('n', '<leader>cu', crates.update_crate, opts)
+    map('v', '<leader>cu', crates.update_crates, opts)
+    map('n', '<leader>ca', crates.update_all_crates, opts)
+    map('n', '<leader>cr', crates.open_repository, opts)
+    map('n', '<leader>cv', crates.show_versions_popup, opts)
+    map('n', '<leader>cf', crates.show_features_popup, opts)
+  end,
+})

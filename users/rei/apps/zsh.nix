@@ -15,8 +15,9 @@
     # Aliases
     shellAliases = {
       lg = "lazygit";
-      nix-clean = "sudo nix-collect-garbage -d && sudo nix-store --optimise";
-      nix-switch = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/nixos/flake.nix#selene";
+      nix-clean = "doas nix-collect-garbage";
+      nix-switch = "doas nixos-rebuild switch --flake ${config.home.homeDirectory}/nixos/flake.nix#selene";
+      cpf = "wl-copy <";
 
       # Modern unix
       grep = "rg $@";
@@ -25,17 +26,18 @@
       ls = "exa $@";
       cat = "bat $@";
       dig = "dog $@";
+      sudo = "doas $@";
     };
 
     envExtra = ''
       export MCFLY_KEY_SCHEME=vim
       export MCFLY_DISABLE_MENU=TRUE
-      export BAT_THEME="macchiato"
+      export BAT_THEME="mocha"
     '';
 
     initExtra = ''
       eval "$(mcfly init zsh)"
-      eval "$(starship init zsh)"
+      eval "$(direnv hook zsh)"
     '';
 
     profileExtra = ''
@@ -81,7 +83,7 @@
           rev = "dbb1ec93b30dbe8cd728cffe0974aa7fa1ac3298";
           sha256 = "0B7g0J6+ZCoe1eErsSEmqO0aNOBi+FB+///vXnuiels=";
         };
-        file = "themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh";
+        file = "themes/catppuccin_mocha-zsh-syntax-highlighting.zsh";
       }
       {
         name = "zsh-syntax-highlighting";

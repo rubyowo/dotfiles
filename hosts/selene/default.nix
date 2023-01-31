@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [./hardware.nix ../common ../../users/rei];
@@ -33,8 +34,8 @@
       # Nix automatically detects files in the store that have identical contents, and replaces them with hard links to a single copy.
       auto-optimise-store = true;
 
-      substituters = ["https://hyprland.cachix.org" "https://nix-community.cachix.org" "https://nix-gaming.cachix.org" "https://webcord.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" "webcord.cachix.org-1:l555jqOZGHd2C9+vS8ccdh8FhqnGe8L78QrHNn+EFEs="];
+      substituters = ["https://hyprland.cachix.org" "https://nix-community.cachix.org" "https://nix-gaming.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
     };
   };
 
@@ -69,8 +70,36 @@
   # Add swaylock to pam.d
   security.pam.services.swaylock = {};
 
+  # Doas
+  security.doas.enable = true;
+  security.sudo.enable = false;
+
+  # OpenSSH
+  services.openssh.enable = true;
+  programs.ssh = {
+    startAgent = true;
+    extraConfig = ''
+      AddKeysToAgent  yes
+    '';
+  };
+
   # OpenGL
   hardware.opengl.enable = true;
+
+  # SeatD
+  systemd.services = {
+    seatd = {
+      enable = true;
+      description = "Seat management daemon";
+      script = "${lib.getExe pkgs.seatd} -g wheel";
+      serviceConfig = {
+        Type = "simple";
+        Restart = "always";
+        RestartSec = "1";
+      };
+      wantedBy = ["multi-user.target"];
+    };
+  };
 
   # Docker
   virtualisation.docker.enable = true;
@@ -78,15 +107,44 @@
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    drivers = [pkgs.canon-cups-ufr2];
+    drivers = with pkgs; [gutenprint];
+    browsing = true;
+    browsedConf = ''
+      BrowseDNSSDSubTypes _cups,_print
+      BrowseLocalProtocols all
+      BrowseRemoteProtocols all
+      CreateIPPPrinterQueues All
+
+      BrowseProtocols all
+    '';
+  };
+  programs.system-config-printer.enable = true;
+
+  services.avahi = {
+    enable = true;
+    openFirewall = true;
+    nssmdns = true;
+  };
+
+  hardware.printers = let
+    canon = "Canon_TS5100_series";
+  in {
+    ensureDefaultPrinter = canon;
+    ensurePrinters = [
+      {
+        name = canon;
+        deviceUri = "dnssd://Canon%20TS5100%20series._ipp._tcp.local/?uuid=00000000-0000-1000-8000-0018255cb515";
+        model = "gutenprint.${lib.versions.majorMinor (lib.getVersion pkgs.gutenprint)}://bjc-TS5000-series/expert";
+        description = lib.replaceStrings ["_"] [" "] canon;
+        location = "My Desk";
+      }
+    ];
   };
 
   # Allow unfree and insecure packages. Heh insecure, like me.
+  # Okay i don't do that anymore (allow insecure packages) but im still leaving the comment in :^)
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [
-      "electron-11.5.0"
-    ];
   };
 
   # Fonts
@@ -109,45 +167,6 @@
         serif = ["Noto Serif" "Noto Color Emoji"];
         emoji = ["Noto Color Emoji"];
       };
-    };
-  };
-
-  users.users.rei = {
-    isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel" "docker"];
-    packages = with pkgs; [];
-    shell = pkgs.zsh;
-  };
-
-  environment = {
-    # Add zsh to /etc/shells
-    shells = [pkgs.zsh];
-
-    # List packages installed in system profile (globally).
-    systemPackages = with pkgs; [
-      wget
-      git
-      home-manager
-      pipewire
-      wireplumber
-      pulseaudio
-      zsh
-      unzip
-      gnupg
-    ];
-
-    pathsToLink = ["/share/zsh"];
-  };
-
-  systemd.services = {
-    seatd = {
-      serviceConfig = {
-        Type = "simple";
-        Restart = "always";
-        RestartSec = "1";
-        ExecStart = "${pkgs.seatd}/bin/seatd -g wheel";
-      };
-      wantedBy = ["multi-user.target"];
     };
   };
 

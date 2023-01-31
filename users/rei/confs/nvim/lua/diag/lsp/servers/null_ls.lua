@@ -10,7 +10,7 @@ return {
         null_ls.formatting.prettierd,
 
         -- Linters
-        null_ls.diagnostics.eslint,
+        null_ls.diagnostics.eslint_d,
         null_ls.diagnostics.selene,
         }
       })

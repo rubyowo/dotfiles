@@ -14,5 +14,5 @@
     extraConfig = "include catppuccin";
   };
 
-  xdg.configFile."zathura/catppuccin".text = builtins.readFile ../confs/zathura/catppuccin-macchiato;
+  xdg.configFile."zathura/catppuccin".text = builtins.readFile ../confs/zathura/catppuccin-mocha;
 }

@@ -6,12 +6,18 @@
   ...
 }: let
   ocrScript = let
-    inherit (pkgs) grim libnotify slurp tesseract5 wl-clipboard;
+    inherit (pkgs) grim slurp tesseract5 wl-clipboard;
     _ = lib.getExe;
   in
     pkgs.writeShellScriptBin "wl-ocr" ''
       ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ tesseract5} - - | ${wl-clipboard}/bin/wl-copy
-      ${_ libnotify} "$(${wl-clipboard}/bin/wl-paste)"
+    '';
+  qrScript = let
+    inherit (pkgs) grim slurp zbar wl-clipboard;
+    _ = lib.getExe;
+  in
+    pkgs.writeShellScriptBin "wl-qr" ''
+      ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ zbar} -q - | sed "s/QR-Code://" | ${wl-clipboard}/bin/wl-copy
     '';
 in {
   home.packages = with pkgs; [
@@ -28,6 +34,7 @@ in {
     imv
     mpv
     ocrScript
+    qrScript
   ];
 
   wayland.windowManager.hyprland = {
@@ -37,8 +44,8 @@ in {
 
   xdg.configFile."hypr/hyprpaper.conf".text =
     builtins.readFile ../confs/hypr/hyprpaper.conf;
-  xdg.configFile."hypr/macchiato.conf".text =
-    builtins.readFile ../confs/hypr/macchiato.conf;
+  xdg.configFile."hypr/mocha.conf".text =
+    builtins.readFile ../confs/hypr/mocha.conf;
   xdg.configFile."swaylock/config".text =
     builtins.readFile ../confs/swaylock/config;
 }

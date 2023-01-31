@@ -1,17 +1,29 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
-  config.gtk = {
+  home.packages = with pkgs; [glib]; # gsettings
+  xdg.systemDirs.data = let
+    schema = pkgs.gsettings-desktop-schemas;
+  in ["${schema}/share/gsettings-schemas/${schema.name}"];
+
+  gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Macchiato-Standard-Pink-Dark";
-      package = pkgs.callPackage ../packages/catppuccin-gtk {};
+      name = "Catppuccin-Mocha-Standard-Pink-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = ["pink"];
+        variant = "mocha";
+      };
     };
     iconTheme = {
-      package = pkgs.rubyowo.catppuccin-papirus-folders.override {flavor = "macchiato"; accent = "pink";};
-      name = "Papirus";
+      package = inputs.nixpkgs-rubyowo.legacyPackages.${pkgs.system}.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "pink";
+      };
+      name = "Papirus-Dark";
     };
     font = {
       name = "FantasqueSansMono Nerd Font";
@@ -32,5 +44,5 @@
   };
 
   # cursor theme
-  config.home.file.".icons/default".source = "${(pkgs.callPackage ../packages/catppuccin-cursors {}).macchiatoPink}/share/icons/Catppuccin-Macchiato-Pink-Cursors";
+  home.file.".icons/default".source = "${pkgs.catppuccin-cursors.mochaPink}/share/icons/Catppuccin-Mocha-Pink-Cursors";
 }

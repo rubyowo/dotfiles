@@ -8,35 +8,35 @@ add_newline = false
 disabled = true
 
 [character]
-success_symbol = " [ﬦ](#f5bde6 bold)"
-error_symbol = " [ﬦ](#ed8796)"
+success_symbol = " [ﬦ](#f5c2e7 bold)"
+error_symbol = " [ﬦ](#f38ba8)"
 
 [hostname]
 disabled = true
 
 [cmd_duration]
 min_time = 1
-format = "(fg:#24273a bg:#24273a)[](fg:#c6a0f6 bg:#24273a)[ $duration](fg:#24273a bg:#c6a0f6)[](fg:#c6a0f6 bg:none) "
+format = "(fg:#1e1e2e bg:#1e1e2e)[](fg:#cba6f7 bg:#1e1e2e)[ $duration](fg:#1e1e2e bg:#cba6f7)[](fg:#cba6f7 bg:none) "
 disabled = false
-style = "fg:#c6a0f6 bg:#24273a"
+style = "fg:#cba6f7 bg:#1e1e2e"
 
 [directory]
-format = "(fg:#24273a bg:#24273a)[](fg:#f5bde6 bg:#24273a)[ $path](fg:#24273a bg:#f5bde6)[](fg:#f5bde6 bg:none) "
-style = "fg:#d9d7d6 bg:#24273a"
+format = "(fg:#1e1e2e bg:#1e1e2e)[](fg:#f5c2e7 bg:#1e1e2e)[ $path](fg:#1e1e2e bg:#f5c2e7)[](fg:#f5c2e7 bg:none) "
+style = "fg:#d9d7d6 bg:#1e1e2e"
 truncation_length = 3
 truncate_to_repo=true
 
 [nix_shell]
-format = "(fg:#24273a bg:#24273a)[](fg:#8bd5ca bg:#24273a)[](fg:#24273a bg:#8bd5ca)[](fg:#8bd5ca bg:none) "
-style = "fg:#8bd5ca bg:#24273a"
+format = "(fg:#1e1e2e bg:#1e1e2e)[](fg:#94e2d5 bg:#1e1e2e)[](fg:#1e1e2e bg:#94e2d5)[](fg:#94e2d5 bg:none) "
+style = "fg:#94e2d5 bg:#1e1e2e"
 
 [git_branch]
-format = "(fg:#24273a bg:#24273a)[](fg:#f4dbd6 bg:#24273a)[ $branch](fg:#282c34 bg:#f4dbd6)[](fg:#f4dbd6 bg:none) "
-style = "fg:#f4dbd6 bg:#24273a"
+format = "(fg:#1e1e2e bg:#1e1e2e)[](fg:#f5e0dc bg:#1e1e2e)[ $branch](fg:#282c34 bg:#f5e0dc)[](fg:#f5e0dc bg:none) "
+style = "fg:#f5e0dc bg:#1e1e2e"
 
 [git_status]
-format="(fg:#24273a bg:#24273a)[](fg:#f0c6c6 bg:#24273a)[ $all_status](fg:#24273a bg:#f0c6c6)[](fg:#f0c6c6 bg:none) "
-style = "fg:#f0c6c6 bg:#24273a"
+format="(fg:#1e1e2e bg:#1e1e2e)[](fg:#f2cdcd bg:#1e1e2e)[ $all_status](fg:#1e1e2e bg:#f2cdcd)[](fg:#f2cdcd bg:none) "
+style = "fg:#f2cdcd bg:#1e1e2e"
 conflicted = "="
 ahead ="${count}"
 behind = "${count}"

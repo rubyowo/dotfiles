@@ -1,4 +1,4 @@
-@import "macchiato.css";
+@import "mocha.css";
 
 * {
   font-family: FantasqueSansMono Nerd Font;
@@ -12,13 +12,13 @@ window#waybar {
 
 #workspaces {
   border-radius: 1rem;
-  background-color: @base;
+  background-color: @surface0;
   margin-top: 1rem;
   margin: 7px 3px 0px 7px;
 }
 
 #workspaces button {
-  color: @mauve;
+  color: @pink;
   border-radius: 1rem;
   padding-left: 6px;
   margin: 5px 0;
@@ -28,12 +28,12 @@ window#waybar {
 }
 
 #workspaces button.active {
-  color: @pink;
+  color: @flamingo;
   border-radius: 1rem;
 }
 
 #workspaces button:hover {
-  color: @flamingo;
+  color: @rosewater;
   border-radius: 1rem;
 }
 
@@ -45,7 +45,7 @@ window#waybar {
 #pulseaudio,
 #custom-lock,
 #custom-power {
-  background-color: @base;
+  background-color: @surface0;
   margin: 7px 3px 0px 7px;
   padding: 10px 5px 10px 5px;
   border-radius: 1rem;

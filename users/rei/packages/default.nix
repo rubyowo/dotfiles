@@ -6,8 +6,9 @@
 }: {
   home.packages = with pkgs; [
     seatd
-    btop
-    neofetch
+    (discord-canary.override {
+      withOpenASAR = true;
+    })
     lazygit
     lazydocker
     gparted
@@ -19,9 +20,7 @@
     starship
     dconf
     fontconfig
-    vim
     neovim-unwrapped
-    firefox
     playerctl
     cachix
     cava
@@ -32,6 +31,12 @@
     lutris
     zathura
     keepassxc
+    (rust-bin.stable.latest.default.override {extensions = ["rust-src"];})
+    rust-analyzer
+    direnv
+
+    inputs.catppuccin-toolbox.packages.${pkgs.system}.puccinier
+    inputs.catppuccin-toolbox.packages.${pkgs.system}.catwalk
 
     # Modern unix
     ripgrep
@@ -44,8 +49,5 @@
     tldr
     dogdns
     httpie
-
-    (callPackage ./catppuccin-gtk {})
-    (callPackage ./catppuccin-cursors {}).macchiatoPink
   ];
 }

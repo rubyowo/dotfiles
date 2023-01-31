@@ -5,18 +5,43 @@
   inputs,
   ...
 }: {
+  users.users.rei = {
+    isNormalUser = true;
+    extraGroups = ["networkmanager" "wheel" "docker"];
+    packages = with pkgs; [];
+    shell = pkgs.zsh;
+  };
+
+  environment = {
+    # Add zsh to /etc/shells
+    shells = [pkgs.zsh];
+
+    systemPackages = with pkgs; [
+      git
+      wget
+      home-manager
+      pipewire
+      wireplumber
+      pulseaudio
+      zsh
+      unzip
+      gnupg
+    ];
+
+    pathsToLink = ["/share/zsh"];
+  };
+
   home-manager.users.rei = {
-    home = {
+    home = rec {
       inherit (config.system) stateVersion;
       username = "rei";
-      homeDirectory = "/home/rei";
+      homeDirectory = "/home/${username}";
     };
 
     _module.args = {inherit inputs;};
 
     imports = [
       inputs.hyprland.homeManagerModules.default
-      inputs.webcord.homeManagerModules.default
 
       ./env.nix
       ./apps

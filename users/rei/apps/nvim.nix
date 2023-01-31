@@ -7,7 +7,7 @@
     black
     alejandra
     shfmt
-    # rustfmt is provided by fenix
+    # rustfmt is provided by rust-overlay
 
     selene
     nodePackages_latest.eslint_d
@@ -15,12 +15,12 @@
 
     sumneko-lua-language-server
     nodePackages_latest.typescript-language-server
+    deno
     nodePackages_latest.bash-language-server
     nodePackages_latest.pyright
     nodePackages.vscode-langservers-extracted
-    nodePackages.yarn
     rnix-lsp
-    # rust-analyzer is provided by fenix
+    # rust-analyzer is provided by rust-overlay
 
     gcc
   ];
