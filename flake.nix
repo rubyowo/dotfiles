@@ -13,7 +13,6 @@
 
     rust-overlay.url = "github:oxalica/rust-overlay";
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
 
     nix-gaming.url = "github:fufexan/nix-gaming";

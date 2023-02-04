@@ -5,26 +5,31 @@
   inputs,
   ...
 }: let
+  _ = lib.getExe;
+  screenshotScript = let
+    inherit (pkgs) wayshot slurp;
+  in
+    pkgs.writeShellScriptBin "wayshot-ss" ''
+    WORKSPACES="$(hyprctl monitors -j | jq -r 'map(.activeWorkspace.id)')"
+    WINDOWS="$(hyprctl clients -j | jq -r --argjson workspaces "$WORKSPACES" 'map(select([.workspace.id] | inside($workspaces)))' )"
+    GEOM=$(echo "$WINDOWS" | jq -r '.[] | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | ${_ slurp} -f '%x %y %w %h')
+    ${_ wayshot} -s "$GEOM" --stdout ''${#:+"$@"}
+    '';
   ocrScript = let
-    inherit (pkgs) grim slurp tesseract5 wl-clipboard;
-    _ = lib.getExe;
+    inherit (pkgs) tesseract5 wl-clipboard;
   in
     pkgs.writeShellScriptBin "wl-ocr" ''
-      ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ tesseract5} - - | ${wl-clipboard}/bin/wl-copy
+      ${_ screenshotScript} -e ppm | ${_ tesseract5} - - | ${wl-clipboard}/bin/wl-copy
     '';
   qrScript = let
-    inherit (pkgs) grim slurp zbar wl-clipboard;
-    _ = lib.getExe;
+    inherit (pkgs) zbar wl-clipboard;
   in
     pkgs.writeShellScriptBin "wl-qr" ''
-      ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ zbar} -q - | sed "s/QR-Code://" | ${wl-clipboard}/bin/wl-copy
+      ${_ screenshotScript} -e ppm | ${_ zbar} -q - | sed "s/QR-Code://" | ${wl-clipboard}/bin/wl-copy
     '';
 in {
   home.packages = with pkgs; [
     hyprpaper
-    grim
-    slurp
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     wf-recorder
     brightnessctl
@@ -33,6 +38,7 @@ in {
     wtype
     imv
     mpv
+    screenshotScript
     ocrScript
     qrScript
   ];

@@ -7,12 +7,12 @@ return {
       sources = {
         -- Formatters
         null_ls.formatting.stylua,
-        null_ls.formatting.prettierd,
+        null_ls.formatting.prettier,
 
         -- Linters
         null_ls.diagnostics.eslint_d,
         null_ls.diagnostics.selene,
-        }
-      })
-    end
+      },
+    })
+  end,
 }
