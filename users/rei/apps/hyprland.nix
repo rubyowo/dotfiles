@@ -29,7 +29,7 @@
     '';
 in {
   home.packages = with pkgs; [
-    hyprpaper
+    inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     wf-recorder
     brightnessctl

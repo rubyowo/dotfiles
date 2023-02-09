@@ -83,6 +83,11 @@
     '';
   };
 
+  # GnuPG
+  programs.gnupg.agent = {
+    enable = true;
+  };
+
   # OpenGL
   hardware.opengl.enable = true;
 
