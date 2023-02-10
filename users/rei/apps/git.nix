@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.git = {
     enable = true;
 
@@ -13,17 +16,17 @@
     };
 
     extraConfig = {
-      gpg = { format = "ssh"; };
+      gpg = {format = "ssh";};
 
       url = {
-        "ssh://git@github.com/" = { insteadOf = "https://github.com/"; };
+        "ssh://git@github.com/" = {insteadOf = "https://github.com/";};
       };
 
-      init = { defaultBranch = "master"; };
+      init = {defaultBranch = "master";};
 
-      commit = { gpgsign = true; };
+      commit = {gpgsign = true;};
 
-      tag = { gpgsign = true; };
+      tag = {gpgsign = true;};
     };
   };
 }

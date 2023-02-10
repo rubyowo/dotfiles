@@ -13,19 +13,19 @@
       nw = "https://nixos.wiki/index.php?search={}";
     };
     settings = {
-        colors.webpage = {
-            preferred_color_scheme = "dark";
-            darkmode.enabled = true;
-        };
-        url.default_page = "https://rubyowo.github.io/Bento/";
+      colors.webpage = {
+        preferred_color_scheme = "dark";
+        darkmode.enabled = true;
+      };
+      url.default_page = "https://rubyowo.github.io/Bento/";
     };
     keyBindings = {
-        normal = {
-            "]p" = "tab-next";
-            "[p" = "tab-prev";
-            ",m" = "spawn mpv {url}";
-            ",M" = "hint links spawn mpv {hint-url}";
-        };
+      normal = {
+        "]p" = "tab-next";
+        "[p" = "tab-prev";
+        ",m" = "spawn mpv {url}";
+        ",M" = "hint links spawn mpv {hint-url}";
+      };
     };
     loadAutoconfig = true;
     extraConfig = builtins.readFile ../confs/qutebrowser/config.py;

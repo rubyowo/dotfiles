@@ -1,5 +1,10 @@
-{ config, pkgs, lib, ... }: {
-  home.packages = with pkgs; [ libnotify ];
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  home.packages = with pkgs; [libnotify];
 
   programs.mako = {
     enable = true;

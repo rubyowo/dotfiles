@@ -1,4 +1,8 @@
-{ configs, pkgs, lib, ...}:
 {
-    xdg.configFile."cava/config".text = builtins.readFile ../confs/cava/config;
+  configs,
+  pkgs,
+  lib,
+  ...
+}: {
+  xdg.configFile."cava/config".text = builtins.readFile ../confs/cava/config;
 }

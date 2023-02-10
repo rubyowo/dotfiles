@@ -1,18 +1,22 @@
-{ config, pkgs, lib, ... }:
-let
-    rofi-powermenu = pkgs.writeTextFile {
-        name = "rofi_powermenu";
-        destination = "/bin/powermenu";
-        executable = true;
-        text = builtins.readFile ../confs/rofi/powermenu.sh;
-    };
-in
 {
-  home.packages = [ rofi-powermenu ];
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  rofi-powermenu = pkgs.writeTextFile {
+    name = "rofi_powermenu";
+    destination = "/bin/powermenu";
+    executable = true;
+    text = builtins.readFile ../confs/rofi/powermenu.sh;
+  };
+in {
+  home.packages = [rofi-powermenu];
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland.overrideAttrs
-      (oldAttrs: { mesonFlags = [ "-Dxcb=disabled" ]; });
+    package =
+      pkgs.rofi-wayland.overrideAttrs
+      (oldAttrs: {mesonFlags = ["-Dxcb=disabled"];});
     extraConfig = {
       modi = "drun";
       icon-theme = "Papirus-Dark";
@@ -26,7 +30,8 @@ in
       display-drun = "Apps";
       drun-display-format = "{name}";
     };
-    theme = let inherit (config.lib.formats.rasi) mkLiteral;
+    theme = let
+      inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = {
         bg-col = mkLiteral "#24273a";
@@ -54,7 +59,7 @@ in
         background-color = mkLiteral "@bg-col";
       };
 
-      "mainbox" = { background-color = mkLiteral "@bg-col"; };
+      "mainbox" = {background-color = mkLiteral "@bg-col";};
 
       inputbar = {
         children = mkLiteral "[prompt,entry]";
@@ -98,14 +103,14 @@ in
         text-color = mkLiteral "@fg-col";
       };
 
-      element-icon = { size = mkLiteral "25px"; };
+      element-icon = {size = mkLiteral "25px";};
 
       "element selected" = {
         background-color = mkLiteral "@selected-col";
         text-color = mkLiteral "@fg-col2";
       };
 
-      mode-switcher = { spacing = 0; };
+      mode-switcher = {spacing = 0;};
 
       button = {
         padding = mkLiteral "10px";
