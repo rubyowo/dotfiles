@@ -35,7 +35,7 @@
     rust-analyzer
     direnv
     mpd
-    mpdris2
+    mpd-mpris
     ncmpcpp
 
     inputs.catppuccin-toolbox.packages.${pkgs.system}.puccinier
