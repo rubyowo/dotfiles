@@ -34,6 +34,9 @@
     (rust-bin.stable.latest.default.override {extensions = ["rust-src"];})
     rust-analyzer
     direnv
+    mpd
+    mpdris2
+    ncmpcpp
 
     inputs.catppuccin-toolbox.packages.${pkgs.system}.puccinier
     inputs.catppuccin-toolbox.packages.${pkgs.system}.catwalk

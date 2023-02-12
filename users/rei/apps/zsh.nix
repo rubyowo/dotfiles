@@ -16,7 +16,7 @@
     shellAliases = {
       lg = "lazygit";
       nix-clean = "doas nix-collect-garbage";
-      nix-switch = "doas nixos-rebuild switch --flake ${config.home.homeDirectory}/nixos/flake.nix#selene";
+      nix-switch = "doas nixos-rebuild switch --flake ${config.home.homeDirectory}/nixos#selene";
       cpf = "wl-copy <";
 
       # Modern unix
