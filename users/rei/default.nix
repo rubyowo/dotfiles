@@ -13,7 +13,6 @@
   };
 
   environment = {
-    # Add zsh to /etc/shells
     shells = [pkgs.zsh];
 
     systemPackages = with pkgs; [

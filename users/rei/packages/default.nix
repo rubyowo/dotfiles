@@ -50,5 +50,6 @@
     tldr
     dogdns
     httpie
+    curlie
   ];
 }

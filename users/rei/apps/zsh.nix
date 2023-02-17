@@ -27,6 +27,7 @@
       cat = "bat $@";
       dig = "dog $@";
       sudo = "doas $@";
+      curl = "curlie $@";
     };
 
     envExtra = ''
