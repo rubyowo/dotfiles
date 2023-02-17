@@ -17,6 +17,7 @@
       lg = "lazygit";
       nix-clean = "doas nix-collect-garbage";
       nix-switch = "doas nixos-rebuild switch --flake ${config.home.homeDirectory}/nixos#selene";
+      nix-rollback = "doas nixos-rebuild switch --flake ${config.home.homeDirectory}/nixos#selene --rollback";
       cpf = "wl-copy <";
 
       # Modern unix
