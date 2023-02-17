@@ -23,7 +23,7 @@
       grep = "rg $@";
       find = "fd $@";
       df = "duf $@";
-      ls = "exa $@";
+      ls = "exa --git --icons $@";
       cat = "bat $@";
       dig = "dog $@";
       sudo = "doas $@";
