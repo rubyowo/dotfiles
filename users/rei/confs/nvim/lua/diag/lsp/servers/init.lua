@@ -5,7 +5,7 @@ local servers = {
   dockerls = {},
   rust_analyzer = require('diag.lsp.servers.rust_analyzer'),
   pyright = {},
-  sumneko_lua = require('diag.lsp.servers.sumneko_lua'),
+  lua_ls = require('diag.lsp.servers.lua_ls'),
   null_ls = require('diag.lsp.servers.null_ls'),
   rnix = {},
 }
