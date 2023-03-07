@@ -1,7 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
   xdg.configFile."nvim".source = ../confs/nvim;
 
@@ -16,13 +15,15 @@
     selene
     nodePackages_latest.eslint_d
     shellcheck
+    statix
 
     lua-language-server
     nodePackages_latest.typescript-language-server
     deno
     nodePackages_latest.bash-language-server
     nodePackages_latest.pyright
-    nodePackages.vscode-langservers-extracted
+    nodePackages_latest.vscode-langservers-extracted
+    nodePackages_latest.dockerfile-language-server-nodejs
     rnix-lsp
     # rust-analyzer is provided by rust-overlay
 

@@ -1,19 +1,18 @@
-{
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ config
+, pkgs
+, lib
+, inputs
+, ...
 }: {
   users.users.rei = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel" "docker"];
-    packages = with pkgs; [];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
 
   environment = {
-    shells = [pkgs.zsh];
+    shells = [ pkgs.zsh ];
 
     systemPackages = with pkgs; [
       git
@@ -27,7 +26,7 @@
       gnupg
     ];
 
-    pathsToLink = ["/share/zsh"];
+    pathsToLink = [ "/share/zsh" ];
   };
 
   home-manager.users.rei = {
@@ -37,10 +36,11 @@
       homeDirectory = "/home/${username}";
     };
 
-    _module.args = {inherit inputs;};
+    _module.args = { inherit inputs; };
 
     imports = [
       inputs.hyprland.homeManagerModules.default
+      inputs.sops-nix.homeManagerModules.sops
 
       ./env.nix
       ./apps

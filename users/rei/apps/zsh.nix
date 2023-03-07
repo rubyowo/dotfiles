@@ -1,16 +1,16 @@
 # ZSH settings
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }: {
-  programs.zsh = {
+  programs.zsh = rec {
     enable = true;
     enableCompletion = true;
     enableAutosuggestions = true;
 
     dotDir = ".config/zsh";
+    history.path = "${config.home.homeDirectory}/${dotDir}/.zsh_history";
 
     # Aliases
     shellAliases = {

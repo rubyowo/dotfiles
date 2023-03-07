@@ -1,4 +1,4 @@
-require('telescope').setup({
+return {
   defaults = {
     mappings = {
       i = {
@@ -6,6 +6,11 @@ require('telescope').setup({
         ['<C-d>'] = false,
       },
     },
+    n = {
+      ['q'] = function(...)
+        return require('telescope.actions').close(...)
+      end,
+    },
   },
   extensions = {},
-})
+}

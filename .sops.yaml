@@ -1,0 +1,6 @@
+keys:
+  - &rei age1r7kdltaqvp05kelpsnrqkqkfcyz05wq98ef3qqmjemvgmhxd8egss229c5
+creation_rules:
+  - key_groups:
+      - age:
+          - *rei

@@ -1,6 +1,6 @@
-require('nvim-treesitter.configs').setup({
+return {
   highlight = {
-    enable = true, -- false will disable the whole extension
+    enable = true,
   },
   indent = {
     enable = true,
@@ -9,9 +9,9 @@ require('nvim-treesitter.configs').setup({
     enable = true,
   },
   rainbow = {
-    enable = true
+    enable = true,
   },
   ensure_installed = require('treesitter.ensure_installed'),
   textobjects = require('treesitter.textobjects'),
   incremental_selection = require('treesitter.incremental_selection'),
-})
+}

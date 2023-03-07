@@ -6,7 +6,7 @@
 }: {
   home.packages = with pkgs; [libnotify];
 
-  programs.mako = {
+  services.mako = {
     enable = true;
     font = "FantasqueSansMono Nerd Font 12";
     margin = "0,20,20";

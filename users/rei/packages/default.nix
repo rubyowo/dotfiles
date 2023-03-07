@@ -6,9 +6,9 @@
 }: {
   home.packages = with pkgs; [
     seatd
-    (discord-canary.override {
+    /* (discord-canary.override {
       withOpenASAR = true;
-    })
+    }) */
     lazygit
     lazydocker
     gparted

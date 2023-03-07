@@ -25,6 +25,7 @@ map('n', '<Leader>f', '<cmd>Telescope find_files<cr>')
 map('n', '<C-b>', '<cmd>Telescope buffers<cr>')
 map('n', '<F1>', '<cmd>Telescope help_tags<cr>')
 map('n', '<Leader>g', '<cmd>Telescope live_grep<cr>')
+map('n', '<leader>rr', '<cmd>Telescope resume<cr>')
 map('n', '<Leader>h', '<cmd>Neotree focus reveal<cr>')
 
 -- Bufferline
@@ -48,14 +49,6 @@ map('n', '<Leader>`', '<cmd>lua require("FTerm").toggle()<cr>')
 map('t', '<Leader>`', '<C-\\><C-n><cmd>lua require("FTerm").toggle()<cr>')
 map('t', '<S-Esc>', '<C-\\><C-n>')
 
--- Trouble
-map('n', '<Leader>t', '<cmd>Trouble workspace_diagnostics<cr>')
-
--- Sessions
-map('n', '<Leader>sl', '<cmd>SessionManager load_session<cr>')
-map('n', '<Leader>sd', '<cmd>SessionManager delete_session<cr>')
-map('n', '<Leader>ss', '<cmd>SessionManager save_current_session<cr>')
-
 -- Focus
 map('n', '<A-h>', '<cmd>FocusSplitLeft<cr>')
 map('n', '<A-j>', '<cmd>FocusSplitDown<cr>')
@@ -68,6 +61,3 @@ map('n', '<C-w>h', '<cmd>WinShift left<cr>')
 map('n', '<C-w>j', '<cmd>WinShift down<cr>')
 map('n', '<C-w>k', '<cmd>WinShift up<cr>')
 map('n', '<C-w>l', '<cmd>WinShift right<cr>')
-
--- Formatting
-map('n', '<A-f>', '<cmd>FormatWrite<cr>')

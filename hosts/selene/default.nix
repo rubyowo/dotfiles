@@ -1,27 +1,28 @@
+{ config
+, pkgs
+, lib
+, ...
+}:
 {
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
-  imports = [./hardware.nix ../common ../../users/rei];
+  imports = [ ./hardware.nix ../common ../../users/rei ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
-      systemd-boot = {enable = true;};
+      systemd-boot = { enable = true; };
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
     };
+    cleanTmpDir = true;
   };
 
   # Configure nix itself
   nix = {
     settings = {
       # Experimental Features
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
 
       # Maximum number of concurrent tasks during one build
       cores = 4;
@@ -34,14 +35,16 @@
       # Nix automatically detects files in the store that have identical contents, and replaces them with hard links to a single copy.
       auto-optimise-store = true;
 
-      substituters = ["https://hyprland.cachix.org" "https://nix-community.cachix.org" "https://nix-gaming.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
+      substituters = [ "https://hyprland.cachix.org" "https://nix-community.cachix.org" "https://nix-gaming.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
     };
   };
 
   networking = {
     networkmanager.enable = true;
+
     hostName = "selene";
+    nameservers = [ "127.0.0.1" ];
   };
 
   # Set your time zone.
@@ -50,10 +53,10 @@
   i18n.defaultLocale = "en_US.utf8";
 
   # Hardware configuration
-  hardware = {bluetooth = {enable = true;};};
+  hardware = { bluetooth = { enable = true; }; };
 
   # Blueman
-  services.blueman = {enable = true;};
+  services.blueman = { enable = true; };
 
   # Audio
   security.rtkit.enable = true;
@@ -68,7 +71,7 @@
   security.polkit.enable = true;
 
   # Add swaylock to pam.d
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 
   # Doas
   security.doas.enable = true;
@@ -102,7 +105,7 @@
         Restart = "always";
         RestartSec = "1";
       };
-      wantedBy = ["multi-user.target"];
+      wantedBy = [ "multi-user.target" ];
     };
   };
 
@@ -112,7 +115,7 @@
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    drivers = with pkgs; [gutenprint];
+    drivers = with pkgs; [ gutenprint ];
     browsing = true;
     browsedConf = ''
       BrowseDNSSDSubTypes _cups,_print
@@ -131,20 +134,22 @@
     nssmdns = true;
   };
 
-  hardware.printers = let
-    canon = "Canon_TS5100_series";
-  in {
-    ensureDefaultPrinter = canon;
-    ensurePrinters = [
-      {
-        name = canon;
-        deviceUri = "dnssd://Canon%20TS5100%20series._ipp._tcp.local/?uuid=00000000-0000-1000-8000-0018255cb515";
-        model = "gutenprint.${lib.versions.majorMinor (lib.getVersion pkgs.gutenprint)}://bjc-TS5000-series/expert";
-        description = lib.replaceStrings ["_"] [" "] canon;
-        location = "My Desk";
-      }
-    ];
-  };
+  hardware.printers =
+    let
+      canon = "Canon_TS5100_series";
+    in
+    {
+      ensureDefaultPrinter = canon;
+      ensurePrinters = [
+        {
+          name = canon;
+          deviceUri = "dnssd://Canon%20TS5100%20series._ipp._tcp.local/?uuid=00000000-0000-1000-8000-0018255cb515";
+          model = "gutenprint.${lib.versions.majorMinor (lib.getVersion pkgs.gutenprint)}://bjc-TS5000-series/expert";
+          description = lib.replaceStrings [ "_" ] [ " " ] canon;
+          location = "My Desk";
+        }
+      ];
+    };
 
   # Allow unfree and insecure packages. Heh insecure, like me.
   # Okay i don't do that anymore (allow insecure packages) but im still leaving the comment in :^)
@@ -159,7 +164,7 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      (nerdfonts.override {fonts = ["FantasqueSansMono"];})
+      (nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
     ];
 
     fontconfig = {
@@ -168,9 +173,9 @@
           "FantasqueSansMono Nerd Font"
           "Noto Color Emoji"
         ];
-        sansSerif = ["Noto Sans" "Noto Color Emoji"];
-        serif = ["Noto Serif" "Noto Color Emoji"];
-        emoji = ["Noto Color Emoji"];
+        sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
+        serif = [ "Noto Serif" "Noto Color Emoji" ];
+        emoji = [ "Noto Color Emoji" ];
       };
     };
   };

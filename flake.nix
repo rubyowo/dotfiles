@@ -3,8 +3,6 @@
 
   inputs = {
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    nixpkgs-rubyowo.url = "github:rubyowo/nixpkgs/catppuccin-papirus-folders";
-
     nixpkgs.follows = "nixpkgs-unstable";
 
     home-manager = {
@@ -19,6 +17,8 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     catppuccin-toolbox.url = "github:catppuccin/toolbox";
+
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = {
@@ -27,6 +27,7 @@
     home-manager,
     rust-overlay,
     hyprland,
+    sops-nix,
     ...
   } @ inputs: let
     overlays = {pkgs, ...}: {
@@ -59,6 +60,7 @@
         overlays
         hyprland.nixosModules.default
         {programs.hyprland.enable = true;}
+        sops-nix.nixosModules.sops
       ];
       specialArgs = {inherit system inputs;};
     };

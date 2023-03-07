@@ -19,7 +19,7 @@
       };
     };
     iconTheme = {
-      package = inputs.nixpkgs-rubyowo.legacyPackages.${pkgs.system}.catppuccin-papirus-folders.override {
+      package = pkgs.callPackage ../packages/catppuccin-papirus-folders {
         flavor = "mocha";
         accent = "pink";
       };

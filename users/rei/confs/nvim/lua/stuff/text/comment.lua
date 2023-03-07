@@ -1,4 +1,4 @@
-require('Comment').setup({
+return {
   ignore = '^$',
   toggler = {
     line = '<leader>cc',
@@ -8,4 +8,4 @@ require('Comment').setup({
     line = '<leader>c',
     block = '<leader>b',
   },
-})
+}
