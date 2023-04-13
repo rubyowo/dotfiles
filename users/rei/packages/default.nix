@@ -6,9 +6,6 @@
 }: {
   home.packages = with pkgs; [
     seatd
-    /* (discord-canary.override {
-      withOpenASAR = true;
-    }) */
     lazygit
     lazydocker
     gparted
@@ -25,7 +22,6 @@
     cachix
     cava
     swaylock-effects
-    youtube-music
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
     winetricks
     lutris
@@ -35,6 +31,8 @@
     rust-analyzer
     direnv
     mpd-mpris
+    syncthing
+    virtmanager
 
     inputs.catppuccin-toolbox.packages.${pkgs.system}.puccinier
     inputs.catppuccin-toolbox.packages.${pkgs.system}.catwalk

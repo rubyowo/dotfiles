@@ -4,13 +4,13 @@
 , pkgs
 , ...
 }: {
-  programs.zsh = rec {
+  programs.zsh = {
     enable = true;
     enableCompletion = true;
     enableAutosuggestions = true;
 
     dotDir = ".config/zsh";
-    history.path = "${config.home.homeDirectory}/${dotDir}/.zsh_history";
+    history.path = "${config.home.homeDirectory}/.config/zsh/.zsh_history";
 
     # Aliases
     shellAliases = {

@@ -19,7 +19,7 @@
       };
     };
     iconTheme = {
-      package = pkgs.callPackage ../packages/catppuccin-papirus-folders {
+      package = pkgs.catppuccin-papirus-folders.override {
         flavor = "mocha";
         accent = "pink";
       };

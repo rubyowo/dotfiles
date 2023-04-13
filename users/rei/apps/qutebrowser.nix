@@ -5,7 +5,7 @@
   ...
 }: {
   programs.qutebrowser = {
-    enable = true;
+    enable = false;
     package = pkgs.qutebrowser-qt6.override {
       enableWideVine = true;
     };
