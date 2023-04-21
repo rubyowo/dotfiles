@@ -33,9 +33,12 @@
     mpd-mpris
     syncthing
     virtmanager
+    gnome.seahorse
 
     inputs.catppuccin-toolbox.packages.${pkgs.system}.puccinier
     inputs.catppuccin-toolbox.packages.${pkgs.system}.catwalk
+
+    (pkgs.callPackage ./podman-compose {})
 
     # Modern unix
     ripgrep

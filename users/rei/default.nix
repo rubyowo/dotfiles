@@ -6,7 +6,7 @@
 }: {
   users.users.rei = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "podman" "libvirtd" ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
